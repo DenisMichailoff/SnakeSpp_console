@@ -1,0 +1,40 @@
+# Project: Snake
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o CScreen.o SCoord.o CSnake.o CGame.o
+LINKOBJ  = main.o CScreen.o SCoord.o CSnake.o CGame.o
+LIBS     = 
+INCS     = 
+CXXINCS  = 
+BIN      = Snake.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+CScreen.o: CScreen.cpp
+	$(CPP) -c CScreen.cpp -o CScreen.o $(CXXFLAGS)
+
+SCoord.o: SCoord.cpp
+	$(CPP) -c SCoord.cpp -o SCoord.o $(CXXFLAGS)
+
+CSnake.o: CSnake.cpp
+	$(CPP) -c CSnake.cpp -o CSnake.o $(CXXFLAGS)
+
+CGame.o: CGame.cpp
+	$(CPP) -c CGame.cpp -o CGame.o $(CXXFLAGS)
